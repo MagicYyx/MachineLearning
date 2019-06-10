@@ -1,27 +1,22 @@
 #!/usr/bin/env python
 # -*- coding:utf-8 -*-
-import time
-import threading
-import random
+import numpy as np
 
+def createDataSet():
+    group = np.array([[1, 101], [5, 89], [108, 5], [115, 8]])
+    labels = ['爱情片', '爱情片', '动作片', '动作片']
+    # labels = ['1', '2', '3', '4']
+    return group, labels
 
-class myT(object):
-    def __init__(self, n):
-        t1 = threading.Thread(target=self.th1, args=(n,))
-        t2 = threading.Thread(target=self.th2, args=(n,))
-        t1.start()
-        t2.start()
-        t1.join()
-        t2.join()
+def classify0(inX, dataSet, labels, k):
+    # 计算距离
+    distance = np.sum((inX - dataSet) ** 2, axis=1) ** 0.5
+    # k个最近的标签
+    k_labels = [labels[index] for index in distance.argsort()[0: k]]
+    # 出现次数最多的标签即为最终类别
+    result = max(k_labels, key=k_labels.count)
+    return result
 
-    def th1(self, m):
-        while 1:
-            for i in range(m, -1, -1):
-                print(1 / i)
-                time.sleep(random.random() * 2)
-
-    def th2(self, m):
-        while 1:
-            for i in range(m):
-                print(-i)
-                time.sleep(random.random() * 2)
+if __name__ == '__main__':
+    group, labels = createDataSet()
+    print(classify0([1,3], group, labels, 3))
