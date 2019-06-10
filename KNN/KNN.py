@@ -2,6 +2,7 @@
 # -*- coding:utf-8 -*-
 import numpy as np
 import pandas as pd
+import matplotlib.pyplot as plt
 
 
 def getDataSet(file_path):
@@ -23,3 +24,19 @@ def classify(classify_item, k, file_path):
     # 出现次数最多的标签即为最终类别
     result = max(k_labels, key=k_labels.count)
     return result
+
+
+def picture(file_path):
+    x, y = getDataSet(file_path)
+    LabelColors = []
+    for i in range(len(y)):
+        if y[i] == 1:
+            LabelColors.append('black')
+        if y[i] == 2:
+            LabelColors.append('red')
+        if y[i] == 3:
+            LabelColors.append('blue')
+        if y[i] == 4:
+            LabelColors.append('orange')
+    plt.scatter(x[:,0], x[:,1],color=LabelColors)
+    plt.show()
