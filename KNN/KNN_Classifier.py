@@ -30,7 +30,6 @@ class KNN_Classifier(object):
         self.__x_train, self.__x_test, self.__y_train, self.__y_test = model_selection.train_test_split(
             X, self.__data[label],
             test_size=0.25)
-        print(self.__x_test)
 
     # 交叉验证法得出最佳K
     def __k_test(self, show_picture):
