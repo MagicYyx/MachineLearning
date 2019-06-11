@@ -60,12 +60,8 @@ class KNN_Classifier(object):
 
     # 预测函数
     def predict(self, data):
-        heads = self.__data.columns[:-1]
-        data_dict = {}
-        for head, d in zip(heads, data):
-            data_dict[head] = d
-        data_dataframe = pd.DataFrame(data_dict, pd.Index(range(1)))
-        return self.__knn_class.predict(data_dataframe)
+        data_new = [data]
+        return self.__knn_class.predict(data_new)
 
     # 模型评估
     def __model_evaluation(self):
