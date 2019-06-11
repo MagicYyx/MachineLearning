@@ -1,10 +1,11 @@
 #!/usr/bin/env python
 # -*- coding:utf-8 -*-
-from KNN.KNN_Classifier import KNN_Classifier
-
+from KNN.KNN import KNN
+from sklearn.preprocessing import minmax_scale
+import pandas as pd
 
 path = r'C:\Users\Administrator\Desktop\data.xlsx'
-x = [[0.1, 0.3, 0.3] ,[0.3, 0.2, 0.1]]
-knn = KNN_Classifier()
-knn.fit(path,True,False)
+x = [[40920, 8.326976, 0.953952]]
+knn = KNN()
+knn.fit(path, 'Classifier', normalization=True, show_picture=False)
 print(knn.predict(x))
