@@ -60,8 +60,7 @@ class KNN_Classifier(object):
 
     # 预测函数
     def predict(self, data):
-        data_new = [data]
-        return self.__knn_class.predict(data_new)
+        return self.__knn_class.predict(data)
 
     # 模型评估
     def __model_evaluation(self):
