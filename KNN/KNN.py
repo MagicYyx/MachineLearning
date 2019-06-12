@@ -88,6 +88,13 @@ class KNN(object):
 
     # 执行全部流程
     def fit(self, path, type, normalization=False, show_picture=True):
+        '''
+        :param path: 数据文件路径
+        :param type: 分类或回归（"Classifier" or "Regressor"）
+        :param normalization: 数据是否归一化
+        :param show_picture: 是否显示寻找最佳k值的图像
+        :return:
+        '''
         self.__type = type
         self.__normalization = normalization
         # 获取数据

@@ -1,11 +1,10 @@
 #!/usr/bin/env python
 # -*- coding:utf-8 -*-
-from KNN.KNN import KNN
-from sklearn.preprocessing import minmax_scale
-import pandas as pd
+from DecisionTree.DecisionTree import DecisionTree
 
-path = r'C:\Users\Administrator\Desktop\data.xlsx'
-x = [[40920, 8.326976, 0.953952]]
-knn = KNN()
-knn.fit(path, 'Classifier', normalization=True, show_picture=False)
-print(knn.predict(x))
+path = r'C:\Users\Administrator\Desktop\myGit\MachineLearning\DecisionTree\NHANES.xlsx'
+max_depth = [20, 21, 22, 23, 24]
+min_samples_split = [2, 4, 6, 8, 10]
+min_samples_leaf = [2, 4, 6, 8, 10]
+dt = DecisionTree()
+dt.fit(path, 'Regressor', max_depth, min_samples_split, min_samples_leaf)
