@@ -7,15 +7,10 @@
 
 __author__ = 'Magic Yyx'
 
-import pandas as pd
-import numpy as np
 from sklearn.preprocessing import MinMaxScaler, StandardScaler
 
 
 class data_clean(object):
-    def __init__(self, path):
-        self.name = 'Magic Yyx'
-
     # 归一化和标准化
     def normalization(self, data, type):
         '''
