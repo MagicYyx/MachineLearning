@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
 """
@@ -55,8 +56,8 @@ class DecisionTree(object):
     # 模型评估
     def __model_evaluation(self):
         if self.__type == 'Classifier':
-            print('训练集的预测准确率:', metrics.accuracy_score(self.__y_train, self.__decision_tree.predict(self.__x_train)))
-            print('测试集的预测准确率:', metrics.accuracy_score(self.__y_test, self.__decision_tree.predict(self.__x_test)))
+            print('决策树训练集的预测准确率:', metrics.accuracy_score(self.__y_train, self.__decision_tree.predict(self.__x_train)))
+            print('决策树测试集的预测准确率:', metrics.accuracy_score(self.__y_test, self.__decision_tree.predict(self.__x_test)))
             # 绘制ROC曲线
             y_score = self.__decision_tree.predict_proba(self.__x_test)[:, 1]  # 预测值为第2种的概率
             fpr, tpr, threshold = metrics.roc_curve(self.__y_test, y_score)  # 正例和负例用1和0表示
