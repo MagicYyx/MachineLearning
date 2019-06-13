@@ -66,3 +66,11 @@ class RandomForest(object):
         self.__split_data()
         self.__train_model()
         self.__model_evaluation()
+
+    # 预测函数
+    def predict(self, data):
+        '''
+        :param data: 如[[1.3, 2.2]]、[[1,2], [2,3]]的形式
+        :return:
+        '''
+        return self.__random_forest.predict(data)

@@ -84,3 +84,11 @@ class DecisionTree(object):
         self.__split_data()
         self.__train_model(max_depth, min_samples_split, min_samples_leaf)
         self.__model_evaluation()
+
+    # 预测函数
+    def predict(self, data):
+        '''
+        :param data: 如[[1.3, 2.2]]、[[1,2], [2,3]]的形式
+        :return:
+        '''
+        return self.__decision_tree.predict(data)
